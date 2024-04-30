@@ -1,5 +1,5 @@
 seed: 1
-cuda: -1
+cuda: 0
 env:
   #env_name: HopperFH-v0
   env_name: Hopper-v3

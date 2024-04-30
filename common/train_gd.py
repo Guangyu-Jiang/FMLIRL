@@ -61,6 +61,7 @@ if __name__ == "__main__":
         )
     assert sac_agent.reinitialize == True
 
+    os.makedirs("expert_data/optimal_policy/", exist_ok=True)
     sac_agent.env = train_env
     sac_agent.test_env = test_env
     sac_agent.test_fn = sac_agent.test_agent_ori_env
@@ -69,7 +70,6 @@ if __name__ == "__main__":
     plot_sac_curve(ax, sac_test_rets, sac_alphas, sac_log_pis, sac_time_steps)
 
 
-    os.makedirs("expert_data/optimal_policy/", exist_ok=True)
     plt.savefig(os.path.join(f"expert_data/optimal_policy/gd_{env_name}-{seed}.pdf"))
     log_txt = open(f"expert_data/optimal_policy/gd_{env_name}_{seed}.txt", 'w')
     log_txt.write(repr(sac_test_rets)+'\n')
